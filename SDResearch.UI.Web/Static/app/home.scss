@@ -1,0 +1,31 @@
+﻿@mixin border-iconhome($color) {
+    -webkit-box-shadow: 0px 0px 27px -2px $color;
+    -moz-box-shadow: 0px 0px 27px -2px $color;
+    box-shadow: 0px 0px 27px -2px $color;
+    border-radius: 10px 10px 10px 10px;
+    -moz-border-radius: 10px 10px 10px 10px;
+    -webkit-border-radius: 10px 10px 10px 10px;
+    cursor: pointer;
+}
+
+#icon-boleto-bancario {
+    width: 128px;
+    height: 150px;
+    background: url("../../Static/images/home/icon-boleto-bancario.png") transparent no-repeat center center;
+}
+
+#icon-conta-consumo {
+    width: 128px;
+    height: 150px;
+    background: url("../../Static/images/home/ico-conta-consumo.png") transparent no-repeat center center;
+}
+
+
+#icon-boleto-bancario:hover {
+    @include border-iconhome(rgba(17,14,69,1));
+}
+
+#icon-conta-consumo:hover {
+    @include border-iconhome(rgba(15,69,29,1));
+}
+

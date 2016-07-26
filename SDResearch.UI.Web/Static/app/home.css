@@ -1,0 +1,29 @@
+﻿#icon-boleto-bancario {
+  width: 128px;
+  height: 150px;
+  background: url("../../Static/images/home/icon-boleto-bancario.png") transparent no-repeat center center; }
+
+#icon-conta-consumo {
+  width: 128px;
+  height: 150px;
+  background: url("../../Static/images/home/ico-conta-consumo.png") transparent no-repeat center center; }
+
+#icon-boleto-bancario:hover {
+  -webkit-box-shadow: 0px 0px 27px -2px #110e45;
+  -moz-box-shadow: 0px 0px 27px -2px #110e45;
+  box-shadow: 0px 0px 27px -2px #110e45;
+  border-radius: 10px 10px 10px 10px;
+  -moz-border-radius: 10px 10px 10px 10px;
+  -webkit-border-radius: 10px 10px 10px 10px;
+  cursor: pointer; }
+
+#icon-conta-consumo:hover {
+  -webkit-box-shadow: 0px 0px 27px -2px #0f451d;
+  -moz-box-shadow: 0px 0px 27px -2px #0f451d;
+  box-shadow: 0px 0px 27px -2px #0f451d;
+  border-radius: 10px 10px 10px 10px;
+  -moz-border-radius: 10px 10px 10px 10px;
+  -webkit-border-radius: 10px 10px 10px 10px;
+  cursor: pointer; }
+
+/*# sourceMappingURL=home.css.map */

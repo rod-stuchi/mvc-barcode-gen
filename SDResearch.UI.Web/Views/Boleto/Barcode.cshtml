@@ -1,0 +1,154 @@
+﻿@{
+    ViewBag.Title = "Boleto Bancário";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section css {
+    <link href="~/Static/app/barcode-common.min.css" rel="stylesheet" />
+    <link href="~/Static/app/boleto.min.css" rel="stylesheet" />
+    <link href="~/Static/plugins/bootstrap-toggle.min.css" rel="stylesheet" />
+}
+
+<div class="row" style="margin-top:-40px; margin-bottom:20px;">
+    <div class="col-md-12"><h2>@ViewBag.Title</h2></div>
+</div>
+<div class="row">
+    <div class="col-md-2 hidden-sm hidden-xs">
+        <p class="pull-right">Banco:</p>
+    </div>
+    <div class="col-md-10">
+        <div class="row">
+            <div class="col-md-7">
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-bank fa-fw"></i></span>
+                    <span id="banco-codigo" class="input-group-addon hidden" style="background-color: white; border-right: none;"></span>
+                    <input id="banco" class="form-control" type="text" placeholder="Nome do Banco">
+                </div>
+            </div>
+            <div class="col-md-1 noselection hidden-sm hidden-xs">
+                <button id="banco-limpar" tabindex="-1" class="btn btn-default" type="button" data-toggle="tooltip" data-placement="left" title="apagar">
+                    <span class="glyphicon glyphicon-erase"></span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="visible-sm-inline visible-xs-inline">&nbsp;</div>
+
+<div class="row">
+    <div class="col-md-2 text-right hidden-sm hidden-xs">
+        <p class="pull-right">Valor:</p>
+    </div>
+    <div class="col-md-10">
+        <div class="row">
+            <div class="col-md-7">
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-money fa-fw"></i></span>
+                    <input id="valor" class="form-control" type="text" placeholder="0,00">
+                    <span class="input-group-addon" data-toggle="tooltip" data-placement="left" title="Fator de valor">
+                        <input type="checkbox" tabindex="-1" id="valor-check" checked="checked" />
+                    </span>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="btn-group noselection hidden-sm hidden-xs" role="group">
+                    <button id="valor-limpar" tabindex="-1" class="btn btn-default" type="button" data-toggle="tooltip" data-placement="left" title="apagar">
+                        <span class="glyphicon glyphicon-erase"></span>
+                    </button>
+                    <button id="valor-dropdown" tabindex="-1" class="btn btn-default" type="button" data-toggle="collapse" data-target="#div-slider-value" aria-expanded="false" aria-controls="div-slider-value">
+                        <span class=" glyphicon glyphicon-collapse-down" aria-hidden="true"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="div-slider-value" class="row collapse">
+    <div class="col-md-2 text-right">
+    </div>
+    <div class="col-md-10">
+        <div class="row">
+            <div class="col-md-7" style="padding-top:10px; ">
+                <div id="slider-value"></div>
+            </div>
+            <div class="col-md-3">
+                <p id="slider-value-text"></p>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="visible-sm-inline visible-xs-inline">&nbsp;</div>
+
+<div class="row">
+    <div class="col-md-2 text-right hidden-sm hidden-xs">
+        <p class="pull-right">Vencimento:</p>
+    </div>
+    <div class="col-md-10">
+        <div class="row">
+            <div class="col-md-7">
+                <div class="input-group">
+                    <span class="input-group-addon"><i id="icon-calendar" class="fa fa-calendar fa-fw"></i></span>
+                    <input id="vencimento" class="form-control" type="text" placeholder="">
+                    <span class="input-group-addon" data-toggle="tooltip" data-placement="left" title="Fator de vencimento">
+                        <input type="checkbox" tabindex="-1" id="vencimento-check" checked="checked" />
+                    </span>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="btn-group noselection hidden-sm hidden-xs" role="group">
+                    <button id="vencimento-limpar" tabindex="-1" class="btn btn-default" type="button" data-toggle="tooltip" data-placement="left" title="apagar">
+                        <span class="glyphicon glyphicon-erase"></span>
+                    </button>
+                    <button id="vencimento-dropdown" tabindex="-1" class="btn btn-default" type="button" data-toggle="collapse" data-target="#div-slider-vencimento" aria-expanded="false" aria-controls="div-slider-vencimento">
+                        <span class=" glyphicon glyphicon-collapse-down" aria-hidden="true"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="div-slider-vencimento" class="row collapse">
+    <div class="col-md-2 text-right">
+    </div>
+    <div class="col-md-10">
+        <div class="row">
+            <div class="col-md-7" style="padding-top:10px; ">
+                <div id="slider-vencimento"></div>
+            </div>
+            <div class="col-md-4">
+                <p id="slider-vencimento-text"></p>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<br />
+<div class="row">
+    <div class="col-md-2 col-sm-1"></div>
+    <div class="col-md-4 col-sm-6 col-xs-6">
+        <button class="btn btn-primary btn-block" tabindex="-1" id="gen-boleto" data-toggle="tooltip" data-placement="right" title="F2">
+            Gerar Boleto
+        </button>
+    </div>
+    <div class="col-md-2 col-sm-4 col-xs-6">
+        <div style="margin-left:20px;"><input id="auto-check" type="checkbox" checked data-toggle="toggle" data-on="Automático" data-off="Manual" data-onstyle="primary" data-offstyle="warning" data-style="slow"></div>
+    </div>
+</div>
+
+@Html.Partial("~/Views/General/_LineBarcode.cshtml")
+
+@section script {
+    @Scripts.Render("~/bundles/barcode-common-js")
+    @Scripts.Render("~/bundles/boleto-js")
+
+    <script>
+        var _bankdata = @Html.Raw(ViewBag.banks);
+    </script>
+}

@@ -1,0 +1,80 @@
+﻿body {
+  padding-top: 70px; }
+
+.noselection {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none; }
+
+.active-stu > a, .active-stu > a:hover {
+  color: #323232 !important;
+  background-color: #BDBDBD !important;
+  font-weight: 600; }
+
+.nav-stu {
+  background: #ededed;
+  background: -moz-linear-gradient(top, #ededed 0%, #cfcfcf 86%, #e6e6e6 100%);
+  background: -webkit-gradient(left top, left bottom, color-stop(0%, #ededed), color-stop(86%, #cfcfcf), color-stop(100%, #e6e6e6));
+  background: -webkit-linear-gradient(top, #ededed 0%, #cfcfcf 86%, #e6e6e6 100%);
+  background: -o-linear-gradient(top, #ededed 0%, #cfcfcf 86%, #e6e6e6 100%);
+  background: -ms-linear-gradient(top, #ededed 0%, #cfcfcf 86%, #e6e6e6 100%);
+  background: linear-gradient(to bottom, #ededed 0%, #cfcfcf 86%, #e6e6e6 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ededed', endColorstr='#e6e6e6', GradientType=0 ); }
+
+input[disabled] {
+  cursor: default !important; }
+
+.text-error {
+  border-color: #9f2a2a !important;
+  -webkit-box-shadow: 0 0 6px 2px rgba(111, 15, 15, 0.75);
+  -moz-box-shadow: 0 0 6px 2px rgba(111, 15, 15, 0.75);
+  box-shadow: 0 0 6px 2px rgba(111, 15, 15, 0.75); }
+
+@media (min-width: 200px) {
+  .jumbotron p {
+    font-size: 11px;
+    text-align: center; }
+
+  div[id*=slider] p {
+    font-size: 13px; }
+ }
+
+@media (min-width: 430px) {
+  .jumbotron p {
+    font-size: 14px;
+    text-align: center; }
+ }
+
+@media (min-width: 500px) {
+  .jumbotron p {
+    font-size: 16px;
+    text-align: center; }
+ }
+
+@media (min-width: 700px) {
+  .jumbotron p {
+    font-size: 18px;
+    text-align: center; }
+ }
+
+@media (min-width: 992px) {
+  .jumbotron p {
+    font-size: 21px;
+    text-align: left; }
+
+  div[id*=slider] p {
+    font-size: 17px; }
+ }
+
+@media (min-width: 1200px) {
+  .jumbotron p {
+    font-size: 21px;
+    text-align: left; }
+
+  div[id*=slider] p {
+    font-size: 19px; }
+ }
+
+/*# sourceMappingURL=base.css.map */

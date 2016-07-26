@@ -1,0 +1,55 @@
+﻿@import "res/variables.scss";
+@import "res/mixins.scss";
+
+//jQueryUI
+.ui-autocomplete {
+    max-height: 200px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+div.ui-datepicker {
+    width: 400px !important;
+    font-size: 18px;
+}
+
+.slow .toggle-group {
+    -moz-transition: left 0.5s;
+    -o-transition: left 0.5s;
+    -webkit-transition: left 0.5s;
+    transition: left 0.5s;
+}
+
+#banco-limpar,
+#valor-limpar,
+#vencimento-limpar {
+    @include button-icon($color-red);
+}
+
+
+#valor-dropdown,
+#vencimento-dropdown,
+#copiar-linha1,
+#copiar-linha2 {
+    @include button-icon($color-blue);
+}
+
+.zeroclipboard-is-hover {
+    @include border-shadown();
+}
+
+#gen-boleto:hover {
+    @include border-shadown();
+}
+
+.automatico {
+    color: #fff;
+    background-color: #286090 !important;
+    border-color: #204d74 !important;
+}
+
+.manual {
+    color: #fff;
+    background-color: #908b28 !important;
+    border-color: #746820 !important;
+}

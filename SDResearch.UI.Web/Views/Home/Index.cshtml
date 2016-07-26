@@ -1,0 +1,28 @@
+﻿@{
+    ViewBag.Title = "Home";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section css {
+    <link href="~/Static/app/home.min.css" rel="stylesheet" />
+}
+<style>
+    
+
+</style>
+<div class="row" style="margin-top:-40px; margin-bottom:20px;">
+    <h2>Barcode Gen</h2>
+    <h4>Gerador de código de barra para teste de pagamento.</h4>
+</div>
+<br />
+<div class="row">
+    <div class="col-md-6">
+        <a href="/Boleto/Barcode" id="icon-boleto-bancario" class="center-block"></a>
+    </div>
+    <div class="col-md-6">
+        <a href="/ContaConsumo/Barcode" id="icon-conta-consumo" class="center-block"></a>
+    </div>
+</div>
+
+@section script{
+    <script src="~/Static/app/home.js"></script>
+}

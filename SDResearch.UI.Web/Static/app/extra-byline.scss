@@ -1,0 +1,15 @@
+﻿@import "res/variables.scss";
+@import "res/mixins.scss";
+
+
+#linha-limpar {
+    @include button-icon($color-red);
+}
+
+.zeroclipboard-is-hover {
+    @include border-shadown();
+}
+
+#gen-boleto:hover {
+    @include border-shadown();
+}

@@ -1,0 +1,42 @@
+﻿.line-under-flash:before {
+  content: "";
+  width: 10%;
+  visibility: hidden;
+  height: 46px;
+  position: absolute;
+  top: -8px;
+  left: -52px;
+  border-radius: 8px;
+  -moz-transition: 0.38s ease;
+  -o-transition: 0.38s ease;
+  -webkit-transition: 0.38s ease;
+  transition: 0.38s ease;
+  background: rgba(255, 255, 255, 0);
+  background: -moz-linear-gradient(left, rgba(255, 255, 255, 0) 0, rgba(255, 255, 255, 0) 22%, rgba(255, 255, 255, 0.8) 50%, rgba(255, 255, 255, 0) 80%, rgba(255, 255, 255, 0) 100%);
+  background: -webkit-gradient(left top, right top, color-stop(0, rgba(255, 255, 255, 0)), color-stop(22%, rgba(255, 255, 255, 0)), color-stop(50%, rgba(255, 255, 255, 0.8)), color-stop(80%, rgba(255, 255, 255, 0)), color-stop(100%, rgba(255, 255, 255, 0)));
+  background: -webkit-linear-gradient(left, rgba(255, 255, 255, 0) 0, rgba(255, 255, 255, 0) 22%, rgba(255, 255, 255, 0.8) 50%, rgba(255, 255, 255, 0) 80%, rgba(255, 255, 255, 0) 100%);
+  background: -o-linear-gradient(left, rgba(255, 255, 255, 0) 0, rgba(255, 255, 255, 0) 22%, rgba(255, 255, 255, 0.8) 50%, rgba(255, 255, 255, 0) 80%, rgba(255, 255, 255, 0) 100%);
+  background: -ms-linear-gradient(left, rgba(255, 255, 255, 0) 0, rgba(255, 255, 255, 0) 22%, rgba(255, 255, 255, 0.8) 50%, rgba(255, 255, 255, 0) 80%, rgba(255, 255, 255, 0) 100%);
+  background: linear-gradient(to right, rgba(255, 255, 255, 0) 0, rgba(255, 255, 255, 0) 22%, rgba(255, 255, 255, 0.8) 50%, rgba(255, 255, 255, 0) 80%, rgba(255, 255, 255, 0) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ffffff', GradientType=1 ); }
+
+.line-under-hover1:before {
+  visibility: visible;
+  top: 3px;
+  height: 23px;
+  left: calc(65%); }
+
+.line-under-hover2:before {
+  visibility: visible;
+  top: 3px;
+  height: 23px;
+  left: calc(70%); }
+
+.click-zoom {
+  color: #c1c1c1; }
+
+.click-zoom:hover {
+  color: black !important;
+  cursor: default !important; }
+
+/*# sourceMappingURL=barcode-common.css.map */

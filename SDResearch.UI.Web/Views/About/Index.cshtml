@@ -1,0 +1,56 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+
+<form action="/About/SendMail" method="post">
+    @*@AntiForgery.GetHtml()*@
+    @Html.AntiForgeryToken()
+    <div id="test-captcha"></div>
+    <input id="btn-enviar" style="display:none;" type="submit" value="Enviar" />
+</form>
+
+@section script {
+    <script type="text/javascript">
+
+        var captchaWidget;
+        var verifyCallback = function (response) {
+            var token = $('[name=__RequestVerificationToken]').val();
+
+            $.ajax({
+                url: '/About/ValidateCaptcha/',
+                method: 'post',
+                cache: false,
+                dataType: 'json',
+                headers: { "__RequestVerificationToken": token },
+                data: { 'dataToken': response },
+                success: function (objResp) {
+                    if (objResp.success) {
+                        $("#btn-enviar").show();
+                    }
+                    else {
+                        grecaptcha.reset(captchaWidget);
+                        $("#btn-enviar").hide();
+                    }
+                },
+                error: function () {
+                    grecaptcha.reset(captchaWidget);
+                    $("#btn-enviar").hide();
+                }
+            });
+
+        };
+        var onloadCallback = function () {
+            captchaWidget = grecaptcha.render('test-captcha', {
+                'sitekey': '6LdrXwkTAAAAAAvspwZNTbHZBAooeX2zMLpvixDe',
+                'callback': verifyCallback,
+                'theme': 'light'
+            });
+        };
+    </script>
+    <script src='https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit'></script>
+        
+}

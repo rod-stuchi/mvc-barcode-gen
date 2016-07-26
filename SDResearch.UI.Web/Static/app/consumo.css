@@ -1,0 +1,44 @@
+﻿.ui-autocomplete {
+  max-height: 200px;
+  overflow-y: auto;
+  overflow-x: hidden; }
+
+.slow .toggle-group {
+  -moz-transition: left 0.5s;
+  -o-transition: left 0.5s;
+  -webkit-transition: left 0.5s;
+  transition: left 0.5s; }
+
+#concessionaria-limpar:hover, #valor-limpar:hover {
+  color: #9f2a2a;
+  -webkit-box-shadow: 0 0 6px 1px rgba(50, 50, 50, 0.75);
+  -moz-box-shadow: 0 0 6px 1px rgba(50, 50, 50, 0.75);
+  box-shadow: 0 0 6px 1px rgba(50, 50, 50, 0.75); }
+
+#valor-dropdown:hover, #copiar-linha1:hover, #copiar-linha2:hover {
+  color: #194e7a;
+  -webkit-box-shadow: 0 0 6px 1px rgba(50, 50, 50, 0.75);
+  -moz-box-shadow: 0 0 6px 1px rgba(50, 50, 50, 0.75);
+  box-shadow: 0 0 6px 1px rgba(50, 50, 50, 0.75); }
+
+.zeroclipboard-is-hover {
+  -webkit-box-shadow: 0 0 6px 1px rgba(50, 50, 50, 0.75);
+  -moz-box-shadow: 0 0 6px 1px rgba(50, 50, 50, 0.75);
+  box-shadow: 0 0 6px 1px rgba(50, 50, 50, 0.75); }
+
+#gen-consumo:hover {
+  -webkit-box-shadow: 0 0 6px 1px rgba(50, 50, 50, 0.75);
+  -moz-box-shadow: 0 0 6px 1px rgba(50, 50, 50, 0.75);
+  box-shadow: 0 0 6px 1px rgba(50, 50, 50, 0.75); }
+
+.automatico {
+  color: #fff;
+  background-color: #286090 !important;
+  border-color: #204d74 !important; }
+
+.manual {
+  color: #fff;
+  background-color: #908b28 !important;
+  border-color: #746820 !important; }
+
+/*# sourceMappingURL=consumo.css.map */

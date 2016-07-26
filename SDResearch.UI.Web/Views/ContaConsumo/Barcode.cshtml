@@ -1,0 +1,103 @@
+﻿@{
+    ViewBag.Title = "Conta de Consumo";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section css {
+    <link href="~/Static/app/barcode-common.min.css" rel="stylesheet" />
+    <link href="~/Static/app/consumo.min.css" rel="stylesheet" />
+    <link href="~/Static/plugins/bootstrap-toggle.min.css" rel="stylesheet" />
+}
+
+<div class="row" style="margin-top:-40px; margin-bottom:20px;">
+    <div class="col-md-12"><h2>@ViewBag.Title</h2></div>
+</div>
+<div class="row">
+    <div class="col-md-2 text-right hidden-sm hidden-xs">
+        <p class="pull-right">Concessionária:</p>
+    </div>
+    <div class="col-md-10">
+        <div class="row">
+            <div class="col-md-7">
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-plug fa-fw"></i></span>
+                    <input type="hidden" id="concessionaria-codigo" />
+                    <input id="concessionaria" class="form-control" type="text" placeholder="Concessionária">
+                </div>
+            </div>
+            <div class="col-md-1 noselection hidden-sm hidden-xs">
+                <button id="concessionaria-limpar" tabindex="-1" class="btn btn-default" type="button" data-toggle="tooltip" data-placement="left" title="apagar">
+                    <span class="glyphicon glyphicon-erase"></span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="visible-sm-inline visible-xs-inline">&nbsp;</div>
+
+<div class="row">
+    <div class="col-md-2 text-right hidden-sm hidden-xs">
+        <p class="pull-right">Valor:</p>
+    </div>
+    <div class="col-md-10">
+        <div class="row">
+            <div class="col-md-7">
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-money fa-fw"></i></span>
+                    <input id="valor" class="form-control type=" text" placeholder="0,00">
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="btn-group noselection hidden-sm hidden-xs" role="group">
+                    <button id="valor-limpar" tabindex="-1" class="btn btn-default" type="button" data-toggle="tooltip" data-placement="left" title="apagar">
+                        <span class="glyphicon glyphicon-erase"></span>
+                    </button>
+                    <button id="valor-dropdown" tabindex="-1" class="btn btn-default" type="button" data-toggle="collapse" data-target="#div-slider-value" aria-expanded="false" aria-controls="div-slider-value">
+                        <span class=" glyphicon glyphicon-collapse-down" aria-hidden="true"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="div-slider-value" class="row collapse">
+    <div class="col-md-2 text-right">
+    </div>
+    <div class="col-md-10">
+        <div class="row">
+            <div class="col-md-7" style="padding-top:10px; ">
+                <div id="slider-value"></div>
+            </div>
+            <div class="col-md-3">
+                <p id="slider-value-text"></p>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<br />
+<div class="row">
+    <div class="col-md-2 col-sm-1"></div>
+    <div class="col-md-4 col-sm-6 col-xs-6">
+        <button class="btn btn-primary btn-block" tabindex="-1" id="gen-consumo" data-toggle="tooltip" data-placement="right" title="F2">
+            Gerar Conta de Consumo
+        </button>
+    </div>
+    <div class="col-md-2 col-sm-4 col-xs-6">
+        <div style="margin-left:20px;"><input id="auto-check" type="checkbox" checked data-toggle="toggle" data-on="Automático" data-off="Manual" data-onstyle="primary" data-offstyle="warning" data-style="slow"></div>
+    </div>
+</div>
+
+@Html.Partial("~/Views/General/_LineBarcode.cshtml")
+
+@section script{
+    @Scripts.Render("~/bundles/barcode-common-js")
+    @Scripts.Render("~/bundles/consumo-js")
+    <script>
+        var _dealershipdata = @Html.Raw(ViewBag.dealerships);
+    </script>
+}

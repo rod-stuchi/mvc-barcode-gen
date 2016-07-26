@@ -1,0 +1,124 @@
+﻿
+@{
+    ViewBag.Title = "Gerar a partir da linha";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section css {
+    <link href="~/Static/app/barcode-common.min.css" rel="stylesheet" />
+    <link href="~/Static/app/extra-byline.min.css" rel="stylesheet" />
+}
+
+<div class="row" style="margin-top:-40px; margin-bottom:20px;">
+    <div class="col-md-12"><h2>@ViewBag.Title</h2></div>
+</div>
+<div class="row">
+    <div class="col-md-2 text-right hidden-sm hidden-xs">
+        <p class="pull-right">Linha:</p>
+    </div>
+    <div class="col-md-10">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-barcode fa-fw"></i></span>
+                    <input id="linha" class="form-control" type="text" placeholder="Linha digitável">
+                </div>
+            </div>
+            <div class="col-md-1 noselection hidden-sm hidden-xs">
+                <button id="linha-limpar" tabindex="-1" class="btn btn-default" type="button" data-toggle="tooltip" data-placement="left" title="apagar">
+                    <span class="glyphicon glyphicon-erase"></span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="visible-sm-inline visible-xs-inline">&nbsp;</div>
+
+<div id="row-banco" class="row hidden">
+    <div class="col-md-2 text-right hidden-sm hidden-xs">
+        <p>Banco:</p>
+    </div>
+    <div class="col-md-10">
+        <div class="row">
+            <div class="col-md-7">
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-bank fa-fw"></i></span>
+                    <input id="banco" class="form-control" type="text" disabled="disabled" placeholder="">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="visible-sm-inline visible-xs-inline">&nbsp;</div>
+
+<div id="row-concessionaria" class="row hidden">
+    <div class="col-md-2 text-right hidden-sm hidden-xs">
+        <p>Concessionária:</p>
+    </div>
+    <div class="col-md-10">
+        <div class="row">
+            <div class="col-md-7">
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-plug fa-fw"></i></span>
+                    <input id="concessionaria" class="form-control" type="text" disabled="disabled" placeholder="">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="visible-sm-inline visible-xs-inline">&nbsp;</div>
+
+<div id="row-valor" class="row hidden">
+    <div class="col-md-2 text-right hidden-sm hidden-xs">
+        <p>Valor:</p>
+    </div>
+    <div class="col-md-10">
+        <div class="row">
+            <div class="col-md-7">
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-money fa-fw"></i></span>
+                    <input id="valor" class="form-control" type="text" disabled="disabled" placeholder="">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="visible-sm-inline visible-xs-inline">&nbsp;</div>
+
+<div id="row-vencimento" class="row hidden">
+    <div class="col-md-2 text-right hidden-sm hidden-xs">
+        <p>Vencimento:</p>
+    </div>
+    <div class="col-md-10">
+        <div class="row">
+            <div class="col-md-7">
+                <div class="input-group">
+                    <span class="input-group-addon"><i id="icon-calendar" class="fa fa-calendar fa-fw"></i></span>
+                    <input id="vencimento" class="form-control" type="text" disabled="disabled" placeholder="">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<br />
+<div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-4">
+        <button class="btn btn-primary btn-block" tabindex="-1" id="gen-codigo" data-toggle="tooltip" data-placement="right" title="F2">
+            Gerar Código
+        </button>
+    </div>
+</div>
+
+@Html.Partial("~/Views/General/_LineBarcode.cshtml")
+
+
+@section script{
+    @Scripts.Render("~/bundles/barcode-common-js")
+    @Scripts.Render("~/bundles/extra-byline-js")
+}

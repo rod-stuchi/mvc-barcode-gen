@@ -1,0 +1,91 @@
+﻿@import "res/variables.scss";
+@import "res/mixins.scss";
+
+body {
+    padding-top: 70px;
+}
+
+.noselection {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.active-stu > a, .active-stu > a:hover {
+    color: #323232 !important;
+    background-color: #BDBDBD !important;
+    font-weight: 600;
+}
+
+.nav-stu {
+    background: rgba(237,237,237,1);
+    background: -moz-linear-gradient(top, rgba(237,237,237,1) 0%, rgba(207,207,207,1) 86%, rgba(230,230,230,1) 100%);
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(237,237,237,1)), color-stop(86%, rgba(207,207,207,1)), color-stop(100%, rgba(230,230,230,1)));
+    background: -webkit-linear-gradient(top, rgba(237,237,237,1) 0%, rgba(207,207,207,1) 86%, rgba(230,230,230,1) 100%);
+    background: -o-linear-gradient(top, rgba(237,237,237,1) 0%, rgba(207,207,207,1) 86%, rgba(230,230,230,1) 100%);
+    background: -ms-linear-gradient(top, rgba(237,237,237,1) 0%, rgba(207,207,207,1) 86%, rgba(230,230,230,1) 100%);
+    background: linear-gradient(to bottom, rgba(237,237,237,1) 0%, rgba(207,207,207,1) 86%, rgba(230,230,230,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ededed', endColorstr='#e6e6e6', GradientType=0 );
+}
+
+input[disabled] {
+    cursor: default !important;
+}
+
+
+.text-error {
+    border-color: $color-red !important;
+    @include border-shadown-error();
+}
+
+@media (min-width: 200px) {
+    .jumbotron p {
+        font-size: 11px;
+        text-align:center;
+    }
+    div[id*=slider] p {
+        font-size: 13px;
+    }
+}
+
+@media (min-width: 430px) {
+    .jumbotron p {
+        font-size: 14px;
+        text-align:center;
+    }
+}
+@media (min-width: 500px) {
+    .jumbotron p {
+        font-size: 16px;
+        text-align:center;
+    }
+}
+
+@media (min-width: 700px) {
+    .jumbotron p {
+        font-size: 18px;
+        text-align:center;
+    }
+}
+
+@media (min-width: 992px) {
+    .jumbotron p {
+        font-size: 21px;
+        text-align:left;
+    }
+    div[id*=slider] p {
+        font-size: 17px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .jumbotron p {
+        font-size: 21px;
+        text-align:left;
+    }
+    div[id*=slider] p {
+        font-size: 19px;
+    }
+}

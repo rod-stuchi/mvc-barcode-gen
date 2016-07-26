@@ -1,0 +1,17 @@
+﻿#linha-limpar:hover {
+  color: #9f2a2a;
+  -webkit-box-shadow: 0 0 6px 1px rgba(50, 50, 50, 0.75);
+  -moz-box-shadow: 0 0 6px 1px rgba(50, 50, 50, 0.75);
+  box-shadow: 0 0 6px 1px rgba(50, 50, 50, 0.75); }
+
+.zeroclipboard-is-hover {
+  -webkit-box-shadow: 0 0 6px 1px rgba(50, 50, 50, 0.75);
+  -moz-box-shadow: 0 0 6px 1px rgba(50, 50, 50, 0.75);
+  box-shadow: 0 0 6px 1px rgba(50, 50, 50, 0.75); }
+
+#gen-boleto:hover {
+  -webkit-box-shadow: 0 0 6px 1px rgba(50, 50, 50, 0.75);
+  -moz-box-shadow: 0 0 6px 1px rgba(50, 50, 50, 0.75);
+  box-shadow: 0 0 6px 1px rgba(50, 50, 50, 0.75); }
+
+/*# sourceMappingURL=extra-byline.css.map */
