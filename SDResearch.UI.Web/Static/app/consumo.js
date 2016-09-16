@@ -5,13 +5,13 @@ var Consumo;
         function Member() {
         }
         return Member;
-    })();
+    }());
     var member = new Member();
     var ConsumoUI = (function () {
         function ConsumoUI() {
         }
         return ConsumoUI;
-    })();
+    }());
     Consumo.ConsumoUI = ConsumoUI;
     var UIObj = new ConsumoUI();
     var Utils = (function () {
@@ -49,7 +49,9 @@ var Consumo;
                     $("#slider-value-text").text("R$ " + ui.values[0] + " - R$ " + ui.values[1]);
                 }
             });
-            $("#slider-value-text").text("R$ " + $("#slider-value").slider("values", 0) + " - R$ " + $("#slider-value").slider("values", 1));
+            $("#slider-value-text").text("R$ " + $("#slider-value")
+                .slider("values", 0) + " - R$ " + $("#slider-value")
+                .slider("values", 1));
             member.ValueStart = $("#slider-value").slider("values", 0);
             member.ValueEnd = $("#slider-value").slider("values", 1);
         };
@@ -126,7 +128,7 @@ var Consumo;
             });
         };
         return Utils;
-    })();
+    }());
     Consumo.Utils = Utils;
 })(Consumo || (Consumo = {}));
 var consumoUtils = new Consumo.Utils();

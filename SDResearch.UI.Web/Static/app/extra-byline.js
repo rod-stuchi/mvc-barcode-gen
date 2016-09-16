@@ -5,7 +5,7 @@ var ByLine;
         function ByLineUI() {
         }
         return ByLineUI;
-    })();
+    }());
     ByLine.ByLineUI = ByLineUI;
     var UIObj = new ByLineUI();
     var Utils = (function () {
@@ -84,7 +84,7 @@ var ByLine;
             });
         };
         return Utils;
-    })();
+    }());
     ByLine.Utils = Utils;
 })(ByLine || (ByLine = {}));
 var byLineUtils = new ByLine.Utils();

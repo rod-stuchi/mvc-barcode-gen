@@ -59,7 +59,9 @@ module Consumo {
                     $("#slider-value-text").text("R$ " + ui.values[0] + " - R$ " + ui.values[1]);
                 }
             });
-            $("#slider-value-text").text("R$ " + $("#slider-value").slider("values", 0) + " - R$ " + $("#slider-value").slider("values", 1));
+            $("#slider-value-text").text("R$ " + $("#slider-value")
+                .slider("values", 0) + " - R$ " + $("#slider-value")
+                .slider("values", 1));
             member.ValueStart = $("#slider-value").slider("values", 0);
             member.ValueEnd = $("#slider-value").slider("values", 1);
         }

@@ -1,9 +1,11 @@
 ﻿/// <reference path="../jquery/jquery.d.ts" />
+/// <reference path="../jquery/jquery-ui/jqueryui.d.ts" />
+/// <reference path="../bootstrap/js/bootstrap.d.ts" />
 
 interface JQuery {
     maskMoney: Function;
     mask: Function;
-    collapse: Function;
+    // collapse: Function;
     bootstrapToggle: Function;
 }
 

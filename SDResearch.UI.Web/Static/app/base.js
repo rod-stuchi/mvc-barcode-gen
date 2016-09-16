@@ -1,4 +1,6 @@
 /// <reference path="../jquery/jquery.d.ts" />
+/// <reference path="../jquery/jquery-ui/jqueryui.d.ts" />
+/// <reference path="../bootstrap/js/bootstrap.d.ts" />
 var moment;
 var ZeroClipboard;
 var CodeBarGen;
@@ -23,7 +25,7 @@ var CodeBarGen;
             }
         };
         return CodeBar;
-    })();
+    }());
     CodeBarGen.CodeBar = CodeBar;
 })(CodeBarGen || (CodeBarGen = {}));
 String.prototype.padZero = function (len, c) {

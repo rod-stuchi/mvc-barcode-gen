@@ -54,11 +54,11 @@ module Boleto {
         }
 
         CalculateDate(start: number, end: number) {
-            return moment().add(start, 'd').format("DD/MM/YYYY") + " - " + moment().add(end, 'd').format("DD/MM/YYYY");
+            return moment().add(start, "d").format("DD/MM/YYYY") + " - " + moment().add(end, "d").format("DD/MM/YYYY");
         }
 
         Valor() {
-            $("#valor").maskMoney({ prefix: 'R$ ', allowNegative: false, thousands: '.', decimal: ',', affixesStay: true });
+            $("#valor").maskMoney({ prefix: "R$ ", allowNegative: false, thousands: ".", decimal: ",", affixesStay: true });
         }
 
         SliderValor() {
@@ -74,7 +74,9 @@ module Boleto {
                     $("#slider-value-text").text("R$ " + ui.values[0] + " - R$ " + ui.values[1]);
                 }
             });
-            $("#slider-value-text").text("R$ " + $("#slider-value").slider("values", 0) + " - R$ " + $("#slider-value").slider("values", 1));
+            $("#slider-value-text").text("R$ " + $("#slider-value")
+                .slider("values", 0) + " - R$ " + $("#slider-value")
+                .slider("values", 1));
             member.ValueStart = $("#slider-value").slider("values", 0);
             member.ValueEnd = $("#slider-value").slider("values", 1);
         }
@@ -86,23 +88,25 @@ module Boleto {
                 max: 720,
                 values: [0, 90],
                 slide: function (event, ui) {
-                    member.ExpirateStart = moment().add(ui.values[0], 'd').format("DD/MM/YYYY");
-                    member.ExpirateEnd = moment().add(ui.values[1], 'd').format("DD/MM/YYYY");
+                    member.ExpirateStart = moment().add(ui.values[0], "d").format("DD/MM/YYYY");
+                    member.ExpirateEnd = moment().add(ui.values[1], "d").format("DD/MM/YYYY");
                     $("#slider-vencimento-text").text(boletoUtils.CalculateDate(ui.values[0], ui.values[1]));
                 }
             });
 
-            $("#slider-vencimento-text").text(boletoUtils.CalculateDate($("#slider-vencimento").slider("values", 0), $("#slider-vencimento").slider("values", 1)));
+            $("#slider-vencimento-text").text(boletoUtils.CalculateDate($("#slider-vencimento")
+                .slider("values", 0), $("#slider-vencimento")
+                .slider("values", 1)));
             var p1 = $("#slider-vencimento").slider("values", 0);
             var p2 = $("#slider-vencimento").slider("values", 1);
-            member.ExpirateStart = moment().add(p1, 'd').format("DD/MM/YYYY");
-            member.ExpirateEnd = moment().add(p2, 'd').format("DD/MM/YYYY");
+            member.ExpirateStart = moment().add(p1, "d").format("DD/MM/YYYY");
+            member.ExpirateEnd = moment().add(p2, "d").format("DD/MM/YYYY");
         }
 
         BindUIObject() {
             UIObj.bankCode = $("#banco-codigo").text();
 
-            UIObj.value = $("#valor").maskMoney('unmasked')[0];
+            UIObj.value = $("#valor").maskMoney("unmasked")[0];
             UIObj.valueCheck = $("#valor-check").is(":checked");
             UIObj.valueStart = member.ValueStart;
             UIObj.valueEnd = member.ValueEnd;
@@ -152,30 +156,30 @@ module Boleto {
             $("#gen-boleto").on("click", function () {
                 if (boletoUtils.Validate()) {
                     $.ajax({
-                        url: '/Boleto/GenerateBoleto',
-                        method: 'post',
+                        url: "/Boleto/GenerateBoleto",
+                        method: "post",
                         async: true,
                         cache: false,
-                        dataType: 'json',
+                        dataType: "json",
                         data: { "boleto": JSON.stringify(UIObj) },
                         success: function (data) {
                             var obj = JSON.parse(data);
                             var zoomFactor = $("#slider-zoom").slider("value");
-                            var img = '<img src="data:image/png;base64,' + obj.barcodeBase64 + '" style="width:' + ((zoomFactor - 1) * 27.857142 + 450) + 'px;"/>';
+                            var img = `<img src="data:image/png;base64,${obj.barcodeBase64}style="width:${(zoomFactor - 1) * 27.857142 + 450}px;"/>`;
 
                             $("#barcode64").html(img);
-                            $("#div-barcode64").collapse('show')
+                            $("#div-barcode64").collapse("show")
 
                             $("#linha1-text").text(obj.line);
-                            $("#div-linha1").collapse('show');
+                            $("#div-linha1").collapse("show");
 
                             $("#linha2-text").text(obj.lineFormatted);
-                            $("#div-linha2").collapse('show');
+                            $("#div-linha2").collapse("show");
 
                             $(".hr-bottom").show();
 
                             $("#valor").val(obj.value);
-                            $("#valor").maskMoney('mask');
+                            $("#valor").maskMoney("mask");
                             $("#vencimento").val(obj.expirate);
 
                             $("#banco-codigo").text(obj.bankCode.padZero(3));
@@ -210,12 +214,12 @@ $(document).ready(function () {
 
     boletoUtils.BindAutocomplete(_bankdata);
 
-    $(document).on('keydown', null, 'f2', function () {
+    $(document).on("keydown", null, "f2", function () {
         $("#gen-boleto").click();
         $("input").blur();
     });
 
-    $("input").on('keydown', null, 'f2', function () {
+    $("input").on("keydown", null, "f2", function () {
         $("#gen-boleto").click();
         $("input").blur();
     });
@@ -253,7 +257,7 @@ $(document).ready(function () {
         $("#vencimento").datepicker("show");
     });
 
-    $('[data-toggle="tooltip"]').tooltip({ container: 'body', delay: { "show": 1500, "hide": 300 } });
+    $("[data-toggle='tooltip']").tooltip({ container: "body", delay: { "show": 1500, "hide": 300 } });
 
     $("#vencimento").mask("99/99/9999");
 
@@ -279,10 +283,10 @@ $(document).ready(function () {
         $("#banco, #valor, #vencimento").val("");
         $("#banco-codigo").addClass("hidden").text("");
 
-        $("#div-barcode64").collapse('hide');
-        $('#div-barcode64').on('hidden.bs.collapse', function () {
-            $("#div-linha2").collapse('hide');
-            $("#div-linha1").collapse('hide');
+        $("#div-barcode64").collapse("hide");
+        $("#div-barcode64").on("hidden.bs.collapse", function () {
+            $("#div-linha2").collapse("hide");
+            $("#div-linha1").collapse("hide");
             $(".hr-bottom").hide();
         });
     });

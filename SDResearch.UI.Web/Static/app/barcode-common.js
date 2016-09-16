@@ -61,5 +61,5 @@ var Common = (function () {
         });
     };
     return Common;
-})();
+}());
 //# sourceMappingURL=barcode-common.js.map
